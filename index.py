@@ -65,9 +65,10 @@ for user in users:
         for friend in user['friends']:
             if friend.get('cars','') != '':
                 car_owner_counter += 1
-                for fly_atr in friend['flights']:
-                    if fly_atr.get('city'):
-                        flights_counter += 1
+                if friend.get('flights','') != '':
+                    for fly_atr in friend['flights']:
+                        if fly_atr.get('city'):
+                            flights_counter += 1
 avg_flights = round((flights_counter/car_owner_counter),5)
 
 
@@ -86,7 +87,7 @@ users = list_el
 
 # print(users_wrong_password)
 # print(girls_drivers)
-print(best_occupation)
+# print(best_occupation)
 # print(vip_user)
-# print(avg_flights)
+print(avg_flights)
 # print(users)
