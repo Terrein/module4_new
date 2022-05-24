@@ -6,7 +6,7 @@ girls_drivers = []
 max_salary = 0
 dict_job ={}
 big_salary = 0
-best_occupation = []
+best_occupation = {}
 car_owner_counter = 0
 flights_counter = 0
 avg_flights = 0
@@ -43,8 +43,8 @@ for user in users:
                 salary  = friend['job']['salary']
                 if salary > max_salary:
                     max_salary = salary  
-                    dict_job = friend['job']
-best_occupation.append(dict_job)
+                    best_occupation = friend['job'].copy()
+
 
 
 #Point 4. Самый влиятельный пользователь           
@@ -86,7 +86,7 @@ users = list_el
 
 # print(users_wrong_password)
 # print(girls_drivers)
-# print(best_occupation)
+print(best_occupation)
 # print(vip_user)
 # print(avg_flights)
 # print(users)
