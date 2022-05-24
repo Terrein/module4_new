@@ -79,6 +79,7 @@ for user in users:
     elif user.get('friends', '') != '':
         for friend in user['friends']:
             if friend.get('flights', '') != '':
+                list_el.append(user)
                 for fly_atr in friend['flights']:
                     if fly_atr['country'] not in countries:
                         list_el.append(user)
