@@ -12,7 +12,7 @@ flights_counter = 0
 avg_flights = 0
 vip_user = None
 list_el = []
-
+test_var = 0
 
 #Point 1. Плохие пароли
 for user in users:
@@ -67,7 +67,7 @@ for user in users:
                 car_owner_counter += 1
                 if friend.get('flights','') != '':
                     for fly_atr in friend['flights']:
-                        if fly_atr.get('city'):
+                        if fly_atr.get('airport'):
                             flights_counter += 1
 avg_flights = round((flights_counter/car_owner_counter),5)
 
@@ -89,5 +89,8 @@ users = list_el
 # print(girls_drivers)
 # print(best_occupation)
 # print(vip_user)
-print(avg_flights)
+# print(avg_flights)
 # print(users)
+print(flights_counter)
+print(test_var)
+print(car_owner_counter)
