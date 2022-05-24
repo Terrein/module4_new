@@ -12,7 +12,7 @@ flights_counter = 0
 avg_flights = 0
 vip_user = None
 list_el = []
-test_var = 0
+
 
 #Point 1. Плохие пароли
 for user in users:
@@ -91,6 +91,3 @@ users = list_el
 # print(vip_user)
 # print(avg_flights)
 # print(users)
-print(flights_counter)
-print(test_var)
-print(car_owner_counter)
