@@ -1,5 +1,8 @@
 from pprint import pprint
+from socketserver import UDPServer
 from unicodedata import name
+
+from sqlalchemy import false
 from dataset import users, countries
 users_wrong_password = []
 girls_drivers = []
@@ -78,9 +81,7 @@ for user in users:
         list_el.append(user)
     elif user.get('friends', '') != '':
         for friend in user['friends']:
-            if friend.get('flights', '') == '':
-                list_el.append(user)
-            elif friend.get('flights', '') != '':  
+            if friend.get('flights', '') != '':  
                 for fly_atr in friend['flights']:
                     if fly_atr['country'] not in countries:
                         list_el.append(user)
