@@ -63,7 +63,7 @@ for user in users:
 for user in users:
     if user.get('friends', '') != '':
         for friend in user['friends']:
-            if friend.get('cars','') != '' and friend.get('flights', '') != '':
+            if friend.get('cars','') != '':
                 car_owner_counter += 1
                 for fly_atr in friend['flights']:
                     if fly_atr.get('city'):
