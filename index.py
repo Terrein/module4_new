@@ -1,8 +1,5 @@
 from pprint import pprint
-from socketserver import UDPServer
 from unicodedata import name
-
-from sqlalchemy import false
 from dataset import users, countries
 users_wrong_password = []
 girls_drivers = []
@@ -15,7 +12,7 @@ flights_counter = 0
 avg_flights = 0
 vip_user = None
 list_el = []
-
+friend_count = 0 
 
 #Point 1. Плохие пароли
 for user in users:
@@ -75,17 +72,24 @@ for user in users:
 avg_flights = round((flights_counter/car_owner_counter),5)
 
 
+
 #Point 6. Чистка списка users               
 for user in users:
+    without_fly_counter = 0 
     if user.get('friends', '') == '':
         list_el.append(user)
     elif user.get('friends', '') != '':
         for friend in user['friends']:
-            if friend.get('flights', '') != '':  
+            friend_count = len(user.get('friends', ''))
+            if friend.get('flights', '') == '':
+                without_fly_counter += 1
+                if without_fly_counter == friend_count:
+                    list_el.append(user)  
+            elif friend.get('flights', '') != '':  
                 for fly_atr in friend['flights']:
                     if fly_atr['country'] not in countries:
                         list_el.append(user)
-
+                    
 users = list_el
 
 # print(users_wrong_password)
